@@ -188,18 +188,7 @@ if (!Array.prototype.indexOf) {
  *
  */
 
-(function (factory) {
-  if (typeof exports === 'object') {
-    // Node/CommonJS style for Browserify
-    module.exports.jvectormap = factory;
-  } else if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['jquery'], factory);
-  } else {
-    // Browser globals
-    factory(jQuery);
-  }
-}(function ($) {
+exports.map =  (function ($) {
   jvm.$ = $;
 
   var apiParams = {
@@ -237,7 +226,7 @@ if (!Array.prototype.indexOf) {
 
     return this;
   };
-}));
+});
 /*! Copyright (c) 2013 Brandon Aaron (http://brandon.aaron.sh)
  * Licensed under the MIT License (LICENSE.txt).
  *
@@ -246,18 +235,7 @@ if (!Array.prototype.indexOf) {
  * Requires: jQuery 1.2.2+
  */
 
-(function (factory) {
-    if ( typeof define === 'function' && define.amd ) {
-        // AMD. Register as an anonymous module.
-        define(['jquery'], factory);
-    } else if (typeof exports === 'object') {
-        // Node/CommonJS style for Browserify
-        module.exports.lib = factory;
-    } else {
-        // Browser globals
-        factory(jQuery);
-    }
-}(function ($) {
+exports.lib = (function ($) {
 
     var toFix  = ['wheel', 'mousewheel', 'DOMMouseScroll', 'MozMousePixelScroll'],
         toBind = ( 'onwheel' in document || document.documentMode >= 9 ) ?
@@ -438,7 +416,7 @@ if (!Array.prototype.indexOf) {
         return special.settings.adjustOldDeltas && orgEvent.type === 'mousewheel' && absDelta % 120 === 0;
     }
 
-}));/**
+});/**
  * Basic wrapper for DOM element.
  * @constructor
  * @param {String} name Tag name of the element
